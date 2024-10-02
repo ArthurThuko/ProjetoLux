@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private float movex;
 
     //Variáveis públicas
+    public GameObject projetil;
     public float speed;
     public bool isGrounded;
     public float jumpForce;
@@ -68,6 +69,19 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            GameObject bulletInstance = Instantiate(projetil, transform.position, transform.rotation);
+
+            Bullet bulletScript = bulletInstance.GetComponent<Bullet>();
+
+            if (transform.eulerAngles.y == 0)
+            {
+                bulletScript.SetDirection(true); // Direção para a direita
+            }
+            else
+            {
+                bulletScript.SetDirection(false); // Direção para a esquerda
+            }
+
             anime.Play("attack", -1);
         }
     }

@@ -5,12 +5,13 @@ public class Bullet : MonoBehaviour
 {
 
     [SerializeField] private float speed = 5f;
-
     [SerializeField] private float damage = 1f;
-
     [SerializeField] private float livingTimer = 3f;
 
-    private  Vector3 move = Vector3.zero;
+    private Vector3 move = Vector3.zero;
+    private bool isMovingRight;
+
+    public bool direcao = true;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +27,32 @@ public class Bullet : MonoBehaviour
 
     private void Move()
     {
-        move.x = speed * Time.deltaTime;
-        transform.position += move;
+        if (direcao)
+        {
+            move.x = (isMovingRight ? 1 : -1) * speed * Time.deltaTime;
+            transform.position += move;
+        }
+        else
+        {
+            move.y = speed * Time.deltaTime;
+            transform.position += move;
+        }
+    }
+    public void ReflectUp()
+    {
+        direcao = false;
+    }
+
+    public void SetDirection(bool movingRight)
+    {
+        isMovingRight = movingRight;
+
+        if (!isMovingRight)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
+        }
     }
     public void Direction()
     {
@@ -42,10 +67,9 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collision.gameObject.tag == "Espelho")
+        if (collision.CompareTag("EspelhoRefle"))
         {
-            //Classe Health
-            Destroy(gameObject);
+            ReflectUp();
         }
     }
 }
