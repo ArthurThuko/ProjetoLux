@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1010503C-92DA-1C57-92CA-B6E8080BEB63}|Assembly-CSharp.csproj|c:\\users\\arthu\\onedrive\\documentos\\projeto_lux\\lux - projeto\\assets\\scripts\\espelhos\\espelhocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1010503C-92DA-1C57-92CA-B6E8080BEB63}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\espelhos\\espelhocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1010503C-92DA-1C57-92CA-B6E8080BEB63}|Assembly-CSharp.csproj|c:\\users\\arthu\\onedrive\\documentos\\projeto_lux\\lux - projeto\\assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1010503C-92DA-1C57-92CA-B6E8080BEB63}|Assembly-CSharp.csproj|C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1010503C-92DA-1C57-92CA-B6E8080BEB63}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1010503C-92DA-1C57-92CA-B6E8080BEB63}|Assembly-CSharp.csproj|c:\\users\\arthu\\onedrive\\documentos\\projeto_lux\\lux - projeto\\assets\\scripts\\tripeespelho\\tripeespelhocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1010503C-92DA-1C57-92CA-B6E8080BEB63}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tripeespelho\\tripeespelhocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1010503C-92DA-1C57-92CA-B6E8080BEB63}|Assembly-CSharp.csproj|c:\\users\\arthu\\onedrive\\documentos\\projeto_lux\\lux - projeto\\assets\\scripts\\bullet\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1010503C-92DA-1C57-92CA-B6E8080BEB63}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bullet\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1010503C-92DA-1C57-92CA-B6E8080BEB63}|Assembly-CSharp.csproj|C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\assets\\scripts\\espelhos\\espelhoreflexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1010503C-92DA-1C57-92CA-B6E8080BEB63}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\espelhos\\espelhoreflexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1010503C-92DA-1C57-92CA-B6E8080BEB63}|Assembly-CSharp.csproj|C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\assets\\scripts\\player\\espelhocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1010503C-92DA-1C57-92CA-B6E8080BEB63}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\espelhocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,43 +26,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "EspelhoController.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\Assets\\scripts\\espelhos\\EspelhoController.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\espelhos\\EspelhoController.cs",
-              "ToolTip": "C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\Assets\\scripts\\espelhos\\EspelhoController.cs",
-              "RelativeToolTip": "Assets\\scripts\\espelhos\\EspelhoController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAQAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\Assets\\scripts\\player\\EspelhoController.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\player\\EspelhoController.cs",
+              "ToolTip": "C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\Assets\\scripts\\player\\EspelhoController.cs",
+              "RelativeToolTip": "Assets\\scripts\\player\\EspelhoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T17:32:54.64Z",
+              "WhenOpened": "2024-10-02T03:49:10.722Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TripeEspelhoController.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\Assets\\scripts\\tripeespelho\\TripeEspelhoController.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\tripeespelho\\TripeEspelhoController.cs",
-              "ToolTip": "C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\Assets\\scripts\\tripeespelho\\TripeEspelhoController.cs",
-              "RelativeToolTip": "Assets\\scripts\\tripeespelho\\TripeEspelhoController.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAUwAoAAAAAAAAAAAAAAA==",
+              "Title": "EspelhoReflexao.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\Assets\\scripts\\espelhos\\EspelhoReflexao.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\espelhos\\EspelhoReflexao.cs",
+              "ToolTip": "C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\Assets\\scripts\\espelhos\\EspelhoReflexao.cs",
+              "RelativeToolTip": "Assets\\scripts\\espelhos\\EspelhoReflexao.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAQwBIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T14:25:36.472Z",
+              "WhenOpened": "2024-10-02T03:46:02.666Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Bullet.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\Assets\\scripts\\bullet\\Bullet.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\bullet\\Bullet.cs",
+              "ToolTip": "C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\Assets\\scripts\\bullet\\Bullet.cs",
+              "RelativeToolTip": "Assets\\scripts\\bullet\\Bullet.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwBsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-27T14:10:48.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\Assets\\scripts\\player\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\player\\PlayerController.cs",
               "ToolTip": "C:\\Users\\arthu\\OneDrive\\Documentos\\projeto_lux\\Lux - Projeto\\Assets\\scripts\\player\\PlayerController.cs",
               "RelativeToolTip": "Assets\\scripts\\player\\PlayerController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAkwAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAgwFIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-15T03:33:41.317Z",
               "EditorCaption": ""
