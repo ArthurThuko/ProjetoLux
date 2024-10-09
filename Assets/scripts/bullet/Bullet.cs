@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     private bool isMovingRight;
 
     public bool direcao = true;
+    public bool subirDescer = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,20 +28,23 @@ public class Bullet : MonoBehaviour
 
     private void Move()
     {
-        if (direcao)
-        {
-            move.x = (isMovingRight ? 1 : -1) * speed * Time.deltaTime;
-            transform.position += move;
-        }
-        else
+        if (subirDescer)
         {
             move.y = speed * Time.deltaTime;
             transform.position += move;
+        } else
+        {
+            if (direcao)
+            {
+                move.x = (isMovingRight ? 1 : -1) * speed * Time.deltaTime;
+                transform.position += move;
+            }
+            else
+            {
+                move.x = (!isMovingRight ? 1 : -1) * speed * Time.deltaTime;
+                transform.position += move; transform.position += move;
+            }
         }
-    }
-    public void ReflectUp()
-    {
-        direcao = false;
     }
 
     public void SetDirection(bool movingRight)
@@ -63,13 +67,17 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            //Classe Health
             Destroy(gameObject);
         }
 
         if (collision.CompareTag("EspelhoRefle"))
         {
-            ReflectUp();
+            Destroy(gameObject);
+        }
+
+        if (collision.CompareTag("EspelhoDifra"))
+        {
+            Destroy(gameObject);
         }
     }
 }

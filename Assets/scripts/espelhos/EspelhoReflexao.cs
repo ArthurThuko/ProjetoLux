@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class EspelhoRefle : MonoBehaviour
 {
+    public GameObject projetil;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Verifica se o objeto que colidiu tem o script de Bullet
-        Bullet bullet = collision.GetComponent<Bullet>();
         if (collision.CompareTag("Bullet"))
         {
-            // Define a direção da bala para cima (altera para o eixo Y)
-            bullet.ReflectUp();
+            Destroy(collision.gameObject);
+
+            Vector3 spawNewBullet = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
+
+            GameObject newBullet = Instantiate(projetil, spawNewBullet, Quaternion.identity);
+
+            Bullet bulletScript = newBullet.GetComponent<Bullet>();
+            bulletScript.direcao = false;
         }
     }
 }

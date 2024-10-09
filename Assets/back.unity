@@ -265,8 +265,8 @@ GameObject:
   - component: {fileID: 803443631}
   - component: {fileID: 803443632}
   m_Layer: 0
-  m_Name: EspelhoRefle
-  m_TagString: EspelhoRefle
+  m_Name: EspelhoDifra
+  m_TagString: EspelhoDifra
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -313,7 +313,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.1885438, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.9398438, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -332,7 +332,7 @@ Transform:
   m_GameObject: {fileID: 803443628}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.6465, y: -3.3044, z: -4.8545}
+  m_LocalPosition: {x: -4.6465, y: -3.22, z: 0.2909}
   m_LocalScale: {x: -1.4229481, y: -1.581185, z: -0.79}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -392,9 +392,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 803443628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 124002e81b5c088408816aac4905ca18, type: 3}
+  m_Script: {fileID: 11500000, guid: cea1975349e84b44ba6414925eb7d13b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projetil: {fileID: 899740671120333348, guid: 9ffbfd6f0a54aac42b68584a59f31254, type: 3}
 --- !u!1 &1211662912
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +722,9 @@ MonoBehaviour:
   speed: 8
   isGrounded: 0
   jumpForce: 10
+  canShoot: 1
+  fireRate: 0.5
+  nextFireTime: 0
 --- !u!114 &2077901657
 MonoBehaviour:
   m_ObjectHideFlags: 0
