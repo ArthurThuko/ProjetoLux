@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public bool isGrounded;
     public float jumpForce;
+    public bool canShoot = true;
+    public float fireRate = 0.5f;
+    public float nextFireTime = 0f;
 
     void Start()
     {
@@ -29,7 +32,11 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-        Attack();
+        if (Input.GetButtonDown("Fire1") && canShoot && Time.time > nextFireTime)
+        {
+            Attack();
+            nextFireTime = Time.time + fireRate;
+        }
 
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
@@ -83,6 +90,16 @@ public class PlayerController : MonoBehaviour
             }
 
             anime.Play("attack", -1);
+
+            canShoot = false;
+        }
+    }
+
+    void LateUpdate()
+    {
+        if (Input.GetButtonUp("Fire1"))
+        {
+            canShoot = true;
         }
     }
 

@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - TripeEspelho
   - EspelhoRefle
+  - EspelhoDifra
   layers:
   - Default
   - TransparentFX
