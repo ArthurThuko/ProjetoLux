@@ -10,10 +10,14 @@ TagManager:
   - TripeEspelho
   - EspelhoRefle
   - EspelhoDifra
+<<<<<<< HEAD
   - EspelhoInfer
   - EspelhoPola
   - BulletAzul
   - BulletVermelho
+=======
+  - Skin
+>>>>>>> 899e5b02db5af4e569e3998d12aed964430a12cb
   layers:
   - Default
   - TransparentFX
