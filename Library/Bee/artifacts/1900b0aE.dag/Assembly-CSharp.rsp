@@ -406,9 +406,12 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.45f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/scripts/bullet/Bullet.cs"
 "Assets/scripts/espelhos/EspelhoDifra.cs"
+"Assets/scripts/espelhos/EspelhoInfer.cs"
+"Assets/scripts/espelhos/EspelhoPola.cs"
 "Assets/scripts/espelhos/EspelhoReflexao.cs"
 "Assets/scripts/player/EspelhoController.cs"
 "Assets/scripts/player/PlayerController.cs"
+"Assets/scripts/tripeEspelho/TripeEspelho.cs"
 -langversion:9.0
 /deterministic
 /optimize+

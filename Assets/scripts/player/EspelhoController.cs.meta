@@ -3,7 +3,13 @@ guid: ca0d87979cf0fa449879cdc1d6ed0d72
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - handSlot: {instanceID: 0}
+  - espelhoAtual: {instanceID: 0}
+  - espelhoReflePrefab: {instanceID: 0}
+  - espelhoDifraPrefab: {fileID: 7951961148249552457, guid: 1006663cf5fafe24aa70482b3f03fb78, type: 3}
+  - espelhoInferPrefab: {fileID: 5340804969922045009, guid: 746d066de432599499eb66ae7fec0a5f, type: 3}
+  - espelhoPolaPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
