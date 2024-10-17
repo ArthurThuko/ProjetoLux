@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class PlayerController : MonoBehaviour
 {
-    //Variáveis privadas
+    //Variï¿½veis privadas
     private Rigidbody2D rb;
     private Animator anime;
     private float movex;
 
-    //Variáveis públicas
+    //Variï¿½veis pï¿½blicas
     public GameObject projetil;
     public float speed;
     public bool isGrounded;
@@ -17,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public bool canShoot = true;
     public float fireRate = 0.5f;
     public float nextFireTime = 0f;
+
+    
 
     void Start()
     {
@@ -27,6 +31,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         movex = Input.GetAxisRaw("Horizontal");
+
     }
 
     void FixedUpdate()
@@ -66,6 +71,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void DeathAnimation(Life vida){
+        
+            anime.SetBool("IsDead", true);  
+       
+    }
+
     void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -82,11 +93,11 @@ public class PlayerController : MonoBehaviour
 
             if (transform.eulerAngles.y == 0)
             {
-                bulletScript.SetDirection(true); // Direção para a direita
+                bulletScript.SetDirection(true); // Direï¿½ï¿½o para a direita
             }
             else
             {
-                bulletScript.SetDirection(false); // Direção para a esquerda
+                bulletScript.SetDirection(false); // Direï¿½ï¿½o para a esquerda
             }
 
             anime.Play("attack", -1);
@@ -103,7 +114,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) //Verificar se é chão para pular
+    private void OnCollisionEnter2D(Collision2D collision) //Verificar se ï¿½ chï¿½o para pular
     {
         if(collision.gameObject.tag == "Ground")
         {
@@ -119,4 +130,6 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
     }
+    
+     
 }
