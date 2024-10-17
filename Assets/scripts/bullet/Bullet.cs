@@ -79,5 +79,15 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (collision.CompareTag("EspelhoInfer"))
+        {
+            Destroy(gameObject);
+        }
+
+        if (collision.CompareTag("EspelhoPola"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
