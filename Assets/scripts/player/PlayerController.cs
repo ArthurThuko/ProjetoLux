@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     //Variáveis privadas
     private Rigidbody2D rb;
     private Animator anime;
-    private float movex;
+    public float movex;
 
     //Variáveis públicas
     public GameObject projetil;

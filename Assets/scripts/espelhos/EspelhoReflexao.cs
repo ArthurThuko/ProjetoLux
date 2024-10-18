@@ -14,7 +14,7 @@ public class EspelhoRefle : MonoBehaviour
             GameObject newBullet = Instantiate(projetil, spawNewBullet, Quaternion.identity);
 
             Bullet bulletScript = newBullet.GetComponent<Bullet>();
-            bulletScript.direcao = false;
+            bulletScript.subirDescer = true;
         }
     }
 }
