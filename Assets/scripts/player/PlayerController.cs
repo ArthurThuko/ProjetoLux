@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     //Vari�veis privadas
     private Rigidbody2D rb;
     private Animator anime;
-    private float movex;
+    public float movex;
 
     //Vari�veis p�blicas
     public GameObject projetil;
