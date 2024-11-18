@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class EspelhoController : MonoBehaviour
 {
-    public Transform handSlot; // Slot onde o espelho ficará na mão
-    private GameObject espelhoAtual = null; // Espelho atualmente em mãos
-    private GameObject tripeEspelho = null; // Tripé em contato
+    public Transform handSlot;
+    private GameObject espelhoAtual = null;
+    private GameObject tripeEspelho = null;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (tripeEspelho != null) // Se estiver perto de um tripé
+            if (tripeEspelho != null)
             {
                 InteragirComTripe();
             }
-            else if (espelhoAtual != null) // Se não houver tripé, solta o espelho
+            else if (espelhoAtual != null)
             {
                 SoltarEspelho();
             }
@@ -25,11 +25,11 @@ public class EspelhoController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("TripeEspelho"))
         {
-            tripeEspelho = collision.gameObject; // Guarda referência ao tripé
+            tripeEspelho = collision.gameObject;
         }
         else if (espelhoAtual == null && EspelhoValido(collision.gameObject))
         {
-            EquiparEspelho(collision.gameObject); // Equipar espelho
+            EquiparEspelho(collision.gameObject);
         }
     }
 
@@ -37,7 +37,7 @@ public class EspelhoController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("TripeEspelho"))
         {
-            tripeEspelho = null; // Saiu do contato com o tripé
+            tripeEspelho = null;
         }
     }
 
@@ -50,10 +50,9 @@ public class EspelhoController : MonoBehaviour
     private void EquiparEspelho(GameObject espelho)
     {
         espelhoAtual = espelho;
-        espelho.transform.SetParent(handSlot); // Coloca na mão
+        espelho.transform.SetParent(handSlot);
         espelho.transform.localPosition = Vector3.zero;
 
-        // Desativa física e colisão
         Rigidbody2D rb = espelho.GetComponent<Rigidbody2D>();
         if (rb != null) rb.simulated = false;
         espelho.GetComponent<Collider2D>().enabled = false;
@@ -61,29 +60,26 @@ public class EspelhoController : MonoBehaviour
 
     private void SoltarEspelho()
     {
-        espelhoAtual.transform.SetParent(null); // Remove o espelho da mão
+        espelhoAtual.transform.SetParent(null);
+        Vector3 direcao = transform.right;
+        Vector3 novaPosicao = transform.position + direcao * 1.5f;
 
-        // Define a posição à frente do player
-        Vector3 direcao = transform.right; // Usa a direção do player (pode ser ajustada conforme necessário)
-        Vector3 novaPosicao = transform.position + direcao * 1.5f; // Ajusta a distância para soltar
+        espelhoAtual.transform.position = novaPosicao; 
 
-        espelhoAtual.transform.position = novaPosicao; // Define a nova posição
-
-        // Reativa física e colisão
         Rigidbody2D rb = espelhoAtual.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
+            rb.bodyType = RigidbodyType2D.Dynamic;
             rb.simulated = true;
-            rb.velocity = Vector2.zero; // Garante que o espelho não receba impulso anterior
+            rb.velocity = Vector2.zero;
         }
 
         Collider2D colisor = espelhoAtual.GetComponent<Collider2D>();
         if (colisor != null) colisor.enabled = true;
 
-        // Sincroniza as transformações para evitar problemas de física
         Physics2D.SyncTransforms();
 
-        espelhoAtual = null; // Libera a referência
+        espelhoAtual = null;
     }
 
 
@@ -91,23 +87,24 @@ public class EspelhoController : MonoBehaviour
     {
         TripeEspelhoController tripeController = tripeEspelho.GetComponent<TripeEspelhoController>();
 
-        if (espelhoAtual != null) // Coloca o espelho no tripé
+        if (espelhoAtual != null)
         {
             tripeController.ColocarEspelho(espelhoAtual);
             tripeController.espelhoNoTripe = espelhoAtual;
-            espelhoAtual = null; // Libera a mão
+            espelhoAtual = null;
         }
-        else if (tripeController.TemEspelhoNoTripe()) // Pega o espelho do tripé
+        else if (tripeController.TemEspelhoNoTripe())
         {
             espelhoAtual = tripeController.PegarEspelho();
             espelhoAtual = tripeController.espelhoNoTripe;
             tripeController.espelhoNoTripe.transform.SetParent(handSlot);
             tripeController.espelhoNoTripe.transform.localPosition = Vector3.zero;
 
-            espelhoAtual.GetComponent<Collider2D>().enabled = false;
+            tripeController.espelhoNoTripe = null;
 
             Rigidbody2D rb = espelhoAtual.GetComponent<Rigidbody2D>();
-            rb.bodyType = RigidbodyType2D.Dynamic;
+            if (rb != null) rb.simulated = false;
+            espelhoAtual.GetComponent<Collider2D>().enabled = false;
         }
     }
 }

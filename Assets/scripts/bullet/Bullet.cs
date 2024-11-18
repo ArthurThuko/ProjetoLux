@@ -4,23 +4,18 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float damage = 1f;
-    [SerializeField] private float livingTimer = 3f;
+    [SerializeField] private float speed = 15f;
+    [SerializeField] private float livingTimer = 2f;
 
     private Vector3 move = Vector3.zero;
     private bool isMovingRight;
 
     public bool direcao = true;
     public bool subirDescer = false;
-
-    // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, livingTimer);
     }
-
-    // Update is called once per frame
     void Update()
     {
         Move();

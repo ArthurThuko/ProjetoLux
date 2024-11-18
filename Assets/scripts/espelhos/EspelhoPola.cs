@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class EspelhoPolarizacao : MonoBehaviour
 {
-    public GameObject bulletVermelho; // Prefab do bullet vermelho
-    public GameObject bulletAzul; // Prefab do bullet azul
+    public GameObject bulletVermelho;
+    public GameObject bulletAzul;
 
     private bool usarBulletVermelho = true;
 
