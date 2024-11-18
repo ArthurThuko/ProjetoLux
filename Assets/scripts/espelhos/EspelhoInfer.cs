@@ -3,24 +3,23 @@ using UnityEngine;
 
 public class EspelhoInferencia : MonoBehaviour
 {
-    public GameObject projetil; // Prefab do bullet
-    private int bulletCount = 0; // Contador de bullets recebidos
-    private Coroutine timerCoroutine; // Coroutine para rastrear o tempo
+    public GameObject projetil;
+    private int bulletCount = 0;
+    private Coroutine timerCoroutine;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
         {
-            bulletCount++; // Incrementa o número de bullets recebidos
+            bulletCount++;
 
-            if (bulletCount == 2) // Se dois bullets colidirem
+            if (bulletCount == 2)
             {
                 InstantiateNewBullet();
-                ResetCount(); // Reseta o contador e a coroutine
+                ResetCount();
             }
             else
             {
-                // Se for o primeiro bullet, começa a contagem regressiva
                 if (timerCoroutine == null)
                 {
                     timerCoroutine = StartCoroutine(ResetCountAfterTime());
@@ -29,18 +28,15 @@ public class EspelhoInferencia : MonoBehaviour
         }
     }
 
-    // Método para instanciar um novo bullet para cima
     private void InstantiateNewBullet()
     {
         Vector3 spawNewBullet = new Vector3(transform.position.x, transform.position.y + 3.0f, transform.position.z);
         GameObject newBullet = Instantiate(projetil, spawNewBullet, Quaternion.identity);
 
-        // Configura o novo bullet para se mover no eixo Y (para cima)
         Bullet bulletScript = newBullet.GetComponent<Bullet>();
-        bulletScript.subirDescer = true; // O bullet se move no eixo Y
+        bulletScript.subirDescer = true;
     }
 
-    // Reseta o contador de bullets e interrompe a contagem de tempo
     private void ResetCount()
     {
         bulletCount = 0;
@@ -51,10 +47,9 @@ public class EspelhoInferencia : MonoBehaviour
         }
     }
 
-    // Reseta o contador após o intervalo de tempo (2 segundos)
     private IEnumerator ResetCountAfterTime()
     {
-        yield return new WaitForSeconds(2); // Espera o tempo definido
-        ResetCount(); // Reseta o contador de bullets
+        yield return new WaitForSeconds(2);
+        ResetCount();
     }
 }

@@ -19,7 +19,7 @@ public class EspelhoDifra : MonoBehaviour
             Bullet bulletSameScript = bulletSameDirection.GetComponent<Bullet>();
             bulletSameScript.direcao = originalDirection;
             
-            //Bullet para trás
+            //Bullet para tras
             Vector3 spawNewBullet2 = new Vector3(transform.position.x + 2.5f, transform.position.y, transform.position.z);
             GameObject bulletOppoDirection = Instantiate(projetil, spawNewBullet2, Quaternion.identity);
             Bullet bulletOppoScript = bulletOppoDirection.GetComponent<Bullet>();

@@ -1,17 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Video;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    //Vari�veis privadas
     private Rigidbody2D rb;
-    private Animator anime;
+    public Animator anime;
+    public Life life;
     public float movex;
-
-    //Vari�veis p�blicas
     public GameObject projetil;
     public float speed;
     public bool isGrounded;
@@ -19,19 +14,29 @@ public class PlayerController : MonoBehaviour
     public bool canShoot = true;
     public float fireRate = 0.5f;
     public float nextFireTime = 0f;
+    public AudioSource soundFx;
+    public float KBCount;
+    public float KBTime;
+    public float KBForce;
 
-    
+    public bool isKnockRigth;
+
+    private bool isInvulnerable = false;
+    public float invulnerabilityDuration = 1f;
+    public float knockbackUpwardForce = 5f;
+    public float knockbackBackwardForce = 5f; 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anime = GetComponent<Animator>();
+        life = GetComponent<Life>();
+        soundFx = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         movex = Input.GetAxisRaw("Horizontal");
-
     }
 
     void FixedUpdate()
@@ -46,6 +51,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             Jump();
+            soundFx.Play();
         }
     }
 
@@ -53,24 +59,41 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = new Vector2(movex * speed, rb.velocity.y);
 
-        //Flipar o pesornagem
-        if (movex > 0) //Lado direito
+        // Flipar o personagem
+        if (movex > 0)
         {
             transform.eulerAngles = new Vector3(0f, 0f, 0f);
             anime.SetBool("isRun", true);
         }
-
-        if(movex < 0) //Lado Esquerdo
+        else if (movex < 0)
         {
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
             anime.SetBool("isRun", true);
         }
-        if(movex == 0)
+        else
         {
             anime.SetBool("isRun", false);
         }
     }
 
+    void KnockLogic(){
+            if(KBCount <0){
+                Move();
+            }
+            else{
+                if( isKnockRigth == true){
+                    rb.velocity = new Vector2(-KBForce,KBForce);
+
+
+                }
+                else if( isKnockRigth == false){
+                    rb.velocity = new Vector2(KBForce,KBForce);
+                     
+
+                }
+            }
+            KBCount -= Time.deltaTime;
+        }
     public void DeathAnimation(Life vida){
         
             anime.SetBool("IsDead", true);  
@@ -88,20 +111,18 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             GameObject bulletInstance = Instantiate(projetil, transform.position, transform.rotation);
-
             Bullet bulletScript = bulletInstance.GetComponent<Bullet>();
 
             if (transform.eulerAngles.y == 0)
             {
-                bulletScript.SetDirection(true); // Dire��o para a direita
+                bulletScript.SetDirection(true);
             }
             else
             {
-                bulletScript.SetDirection(false); // Dire��o para a esquerda
+                bulletScript.SetDirection(false);
             }
 
             anime.Play("attack", -1);
-
             canShoot = false;
         }
     }
@@ -114,12 +135,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) //Verificar se � ch�o para pular
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
             anime.SetBool("isJump", false);
+        }
+        else if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Danger" && !isInvulnerable)
+        {
+            StartCoroutine(ApplyKnockback(collision));
+            StartCoroutine(BecomeInvulnerable());
         }
     }
 
@@ -130,6 +156,22 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
     }
-    
-     
+
+    private IEnumerator ApplyKnockback(Collision2D collision)
+    {
+        rb.velocity = Vector2.zero; 
+        rb.AddForce(new Vector2(0, knockbackUpwardForce), ForceMode2D.Impulse);
+        
+        yield return new WaitForSeconds(1f);
+
+        float direction = (transform.position.x < collision.transform.position.x) ? -1 : 1;
+        rb.AddForce(new Vector2(direction * knockbackBackwardForce, 0), ForceMode2D.Impulse);
+    }
+
+    private IEnumerator BecomeInvulnerable()
+    {
+        isInvulnerable = true;
+        yield return new WaitForSeconds(invulnerabilityDuration);
+        isInvulnerable = false;
+    }
 }
