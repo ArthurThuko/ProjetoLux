@@ -5,19 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Bullet
-  - Enemy
-  - TripeEspelho
-  - EspelhoRefle
-  - EspelhoDifra
-<<<<<<< HEAD
-  - EspelhoInfer
-  - EspelhoPola
-  - BulletAzul
-  - BulletVermelho
-=======
   - Skin
->>>>>>> 899e5b02db5af4e569e3998d12aed964430a12cb
+  - Bullet
+  - EspelhoInfer
+  - EspelhoRefle
+  - EspelhoPola
+  - BulletVermelho
+  - BulletAzul
+  - TripeEspelho
+  - EspelhoDifra
+  - Enemy
+  - Danger
   layers:
   - Default
   - TransparentFX
@@ -54,7 +52,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: UI
-    uniqueID: 2117918529
     locked: 0
