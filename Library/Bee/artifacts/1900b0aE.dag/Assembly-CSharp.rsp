@@ -417,6 +417,8 @@
 "Assets/scripts/player/Life.cs"
 "Assets/scripts/player/PlayerController.cs"
 "Assets/scripts/prefabFase/botaoPortaFase.cs"
+"Assets/scripts/prefabFase/botaoPortaFase3Azul.cs"
+"Assets/scripts/prefabFase/botaoPortaFase3Verme.cs"
 "Assets/scripts/prefabFase/passarDeFase.cs"
 "Assets/scripts/tripeEspelho/TripeEspelhoController.cs"
 "Assets/scripts/villains/TriggerDamage.cs"
